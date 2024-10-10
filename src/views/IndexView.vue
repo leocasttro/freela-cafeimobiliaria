@@ -7,7 +7,7 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
 </script>
 
 <template>
-  <main class="position-relative">
+  <main>
     <div class="index position-relative">
       <img
         src="../assets/img/backs-home/fundo-cafe-designer.png"
@@ -18,7 +18,7 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
         class="index-fundo position-absolute top-0 start-0 w-100 h-100"
         style="background-color: rgba(32, 55, 46, 0.6)"
       ></div>
-      <CSection class="position-relative z-3">
+      <CSection class="position-relative z-2">
         <div class="d-flex flex-column px-4 text-center" style="margin-top: 40px">
           <h1 class="mb-3">
             <img :src="logonovo" class="d-print-inline-block" style="width: 180px" />
@@ -43,7 +43,7 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
             </div>
           </h3>
         </div>
-        <div class="container">
+        <div class="container-md">
           <div class="row g-3 justify-content-center">
             <div
               class="card-img col-lg-6"
@@ -96,7 +96,7 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
 
 <style>
 .index {
-  height: 100vh; /* ou qualquer altura que desejar */
+  min-height: 90vh; /* Reduzindo a altura mínima para exibir parte do footer */
   overflow: hidden; /* Para esconder qualquer overflow */
 }
 

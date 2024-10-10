@@ -1,17 +1,33 @@
 <template>
   <div class="position-relative">
-    <header :class="['header-bg', routeName]" class="w-100">
-      <NavBar />
-      <HeaderComponent />
-    </header>
+    <NavBar />
+    <HeaderComponent />
     <MainComponent>
-      <h2>Imóveis para comprar em</h2>
-      <select class="form-select select-custom mt-2 w-25">
-        <option selected class="label-select text-center">Santa Maria</option>
-        <option class="text-center" value="1">One</option>
-        <option class="text-center" value="2">Two</option>
-        <option class="text-center" value="3">Three</option>
-      </select>
+      <div>
+        <h2>Imóveis para comprar em</h2>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-custon">
+          <div class="custom-select" @blur="openSelect1 = false">
+            <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
+              {{ selected1.nome }}
+            </div>
+            <div class="items" :class="{ selectHide: !openSelect1 }">
+              <div
+                v-for="option in options1"
+                :key="option.id"
+                @click="selectOption(1, option)"
+                :class="{ 'selected-option': selected1 === option }"
+                class="item"
+                style="border-top: #dcdcdc 2px solid"
+              >
+                {{ option.nome }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <Carousel v-bind="settings" :breakpoints="breakpoints">
         <Slide v-for="slide in cardData" :key="slide.id">
           <CardComponent :title="slide.title" :text="slide.text" :image="slide.image" />
@@ -140,23 +156,21 @@
         </div>
       </div>
     </MainComponent>
+    <MainFooter />
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import CardComponent from '@/components/CardComponent.vue'
 import NavBar from '@/components/NavBar.vue'
 import MainComponent from '@/components/MainComponent.vue'
-import HeaderComponent from '@/components/HeaderComponent.vue'
 import 'vue3-carousel/dist/carousel.css'
 import SectionGrid from '@/components/SectionGrid.vue'
 import CSection from '@/components/UI/CSection.vue'
-
-const route = useRoute()
-const routeName = route.name === 'home' ? 'home-bg' : 'other-bg'
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import MainFooter from '@/components/MainFooter.vue'
 
 const cardData = ref([
   {
@@ -245,6 +259,43 @@ const cardData = ref([
   }
 ])
 
+const emit = defineEmits(['input'])
+
+const selected1 = ref('')
+const openSelect1 = ref(false)
+const options1 = ref([]) // Dados fictícios
+
+const toggleSelect = (selectNumber) => {
+  if (selectNumber === 1) {
+    openSelect1.value = !openSelect1.value
+  }
+}
+
+const selectOption = (selectNumber, option) => {
+  if (selectNumber === 1) {
+    selected1.value = option
+    emit('input', selected1.value)
+    openSelect1.value = false // Fecha o menu após selecionar uma opção
+  }
+}
+
+const loadCity = async () => {
+  try {
+    const response = await fetch('../../public/jsons/jsoncidades.json') // Caminho relativo para o arquivo na pasta public
+    if (!response.ok) {
+      throw new Error('Erro ao carregar o arquivo JSON')
+    }
+    const data = await response.json()
+    options1.value = data
+
+    if (options1.value.length > 0) {
+      selected1.value = options1.value[0]
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 const settings = {
   itemsToShow: 4,
   snapAlign: 'center'
@@ -256,45 +307,81 @@ const breakpoints = {
     snapAlign: 'start'
   }
 }
+onMounted(() => {
+  loadCity()
+})
 </script>
 
 <style scoped>
-.header-bg {
-  height: 585px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.custom-select {
   position: relative;
+  width: 33%;
+  text-align: left;
+  outline: none;
+  height: 47px;
+  line-height: 47px;
 }
 
-.home-bg {
-  background-image: url('../assets/img/home.jpg');
+.custom-select .selected {
+  background-color: #fffafa;
+  border-radius: 10px;
+  border: 1px solid gray;
+  color: rgb(39, 38, 38);
+  padding-left: 1em;
+  cursor: pointer;
+  user-select: none;
+  font-size: 15px;
 }
 
-.other-bg {
-  background-image: url('../assets/img/homesc.jpeg');
+.custom-select .selected.open {
+  border: 1px solid gray;
+  border-radius: 6px 6px 0px 0px;
 }
 
-.header-bg::before {
-  content: '';
+.custom-select .selected:after {
   position: absolute;
-  top: 0;
+  content: '';
+  top: 22px;
+  right: 1em;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-color: #dcdcdc transparent transparent transparent;
+}
+
+.custom-select .items {
+  color: black;
+  border-radius: 0px 0px 6px 6px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #fffafa;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  right: 0;
   z-index: 1;
+  max-height: 300px; /* Limite de altura para as opções visíveis */
+  overflow-y: auto; /* Ativar rolagem vertical */
 }
 
-header > * {
-  position: relative;
-  z-index: 2;
+.custom-select .items div {
+  color: gray; /* Cor inicial dos itens */
+  padding-left: 1em;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  background-color: #fffafa;
 }
 
-.container-header {
-  width: 1200px;
-  height: 500px;
-  margin: 0 auto;
+.custom-select .items div:hover {
+  color: rgb(39, 38, 38);
+  background-color: #e4e0e0;
+}
+
+.selectHide {
+  display: none;
+}
+.selected-option {
+  font-weight: bold; /* Deixa o item selecionado em negrito */
+  color: rgb(39, 38, 38) !important; /* Mantém a cor preta ao ser selecionado */
 }
 
 .btn-custom {
