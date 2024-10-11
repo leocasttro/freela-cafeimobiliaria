@@ -4,7 +4,7 @@
     <GalleryComponent />
     <div class="container-lg">
       <div class="d-flex justify-content-between position-relative">
-        <section class="w-75">
+        <section style="width: 70%">
           <div class="mt-4">
             <button class="btn-custom me-2">
               <i class="fa-solid fa-camera me-2" style="font-size: 20px" /> Fotos
@@ -79,7 +79,7 @@
                 living 4 ambientes com lareira escritório; 3 dormitórios sendo...
               </p>
             </div>
-            <button>Mostrar mais</button>
+            <button class="btn btn-success">Mostrar mais</button>
           </div>
           <div class="mt-4 border-top border-secondary-subtle">
             <h5 class="fw-bold mt-4">Comodidades do imóvel</h5>
@@ -150,19 +150,23 @@
             </Carousel>
           </div>
         </section>
-        <div class="mt-5">
+        <div class="mt-5 w-75">
           <PriceAsideComponent />
         </div>
       </div>
     </div>
     <div class="container my-5">
-      <div class="container-md text-center">
+      <div class="container-md position-relative text-center">
         <img
           src="../assets/img/cta_bg.jpg"
           alt=" "
           class="w-100"
           style="height: 20vh; object-fit: cover"
         />
+        <div class="position-absolute top-50 start-50 translate-middle">
+          <h1 class="mb-3">Tem dúvidas sobre este imóvel?</h1>
+          <button class="btn btn-custom w-50">Fale conosco</button>
+        </div>
       </div>
     </div>
   </div>

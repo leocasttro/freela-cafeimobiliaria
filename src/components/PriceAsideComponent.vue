@@ -47,11 +47,15 @@
       <div class="collapse mt-3" id="taxDetails">
         <div class="table-custom">
           <div class="d-flex justify-content-between border-bottom">
-            <p>ITBI <span class="fa-solid fa-circle-info" /></p>
+            <p style="font-size: 14px">
+              ITBI <span class="fa-solid fa-circle-info" style="font-size: small" />
+            </p>
             <p class="fw-bold mb-0">R$ 63.855,00</p>
           </div>
           <div class="d-flex justify-content-between mt-2">
-            <p>Escritura e Registro <span class="fa-solid fa-circle-info" /></p>
+            <p style="font-size: 14px">
+              Escritura e Registro <span class="fa-solid fa-circle-info" style="font-size: small" />
+            </p>
             <p class="fw-bold">R$ 59.400,00</p>
           </div>
         </div>
@@ -60,9 +64,11 @@
     <div class="mt-5 d-flex justify-content-center">
       <img class="img-seller" src="../assets/img/rafael.old.png" alt="" />
       <ul class="text-center align-content-center list-unstyled mx-3">
-        <li>Valéria Alves</li>
-        <li>Corretora de Imóveis</li>
-        <li>(55) 99622-4208</li>
+        <li class="fw-bold">Valéria Alves</li>
+        <li class="fw-medium" style="font-size: 15px">Corretora de Imóveis</li>
+        <li class="fw-medium" style="font-size: 15px">
+          <i class="fa-solid fa-phone-flip"></i> (55) 99622-4208
+        </li>
       </ul>
     </div>
     <div class="my-4">

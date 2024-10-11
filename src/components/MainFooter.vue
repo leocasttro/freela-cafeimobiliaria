@@ -18,7 +18,7 @@
         </div>
       </div>
       <div>
-        <ul class="list-unstyled text-center">
+        <ul class="list-unstyled text-center" style="font-size: 15px">
           <li class="fw-bold">
             <a href="#" class="text-decoration-none custom-link text-secondary">Imóveis</a>
           </li>
@@ -39,7 +39,7 @@
         </ul>
       </div>
       <div>
-        <ul class="list-unstyled text-center">
+        <ul class="list-unstyled text-center" style="font-size: 15px">
           <li class="fw-bold">
             <a href="#" class="text-decoration-none custom-link text-secondary">A Café</a>
           </li>
@@ -111,7 +111,7 @@
 }
 
 .icon-custom {
-  font-size: 20px;
+  font-size: 15px;
 }
 .btn-custom {
   width: 30px; /* Ajuste o tamanho conforme necessário */
