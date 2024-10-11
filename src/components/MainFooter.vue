@@ -83,10 +83,16 @@
           >Café Negócios Imobiliários Ltda. * Creci 24.707J * Rua Silva Jardim, 1417, Centro, Santa
           Maria/RS | R. 3300, nº 341, Sala 12, Balneário Camboriú/SC
         </span>
-        <div class="mx-5 fs-4">
-          <a class="btn-custom" href=""><i class="fa-brands fa-facebook"></i></a>
-          <a class="btn-custom" href=""><i class="fa-brands fa-instagram"></i></a>
-          <a class="btn-custom" href=""><i class="fa-brands fa-youtube"></i></a>
+        <div class="mx-5 d-flex">
+          <a class="btn-custom rounded-circle text-decoration-none me-2" href=""
+            ><i class="fa-brands fa-facebook icon-custom"></i
+          ></a>
+          <a class="btn-custom rounded-circle text-decoration-none me-2" href=""
+            ><i class="fa-brands fa-instagram icon-custom"></i
+          ></a>
+          <a class="btn-custom rounded-circle text-decoration-none me-2" href=""
+            ><i class="fa-brands fa-youtube icon-custom"></i
+          ></a>
         </div>
       </div>
     </div>
@@ -103,16 +109,20 @@
   text-decoration: underline !important; /* Sublinhado ao passar o mouse */
   color: #0056b3; /* Cor do link ao passar o mouse (efeito padrão do Bootstrap) */
 }
+
+.icon-custom {
+  font-size: 20px;
+}
 .btn-custom {
-  border-radius: 99999px;
+  width: 30px; /* Ajuste o tamanho conforme necessário */
+  height: 30px; /* Deixe o botão quadrado */
+  border-radius: 50%; /* Faz o botão ser um círculo */
   background-image: linear-gradient(#ddc080, #8b6243);
   border: #8b6243 2px solid;
   color: #fff;
-  font-size: 30px;
-  font-weight: 500;
-  text-align: center;
-  align-items: center;
-  margin-right: 10px;
+  display: flex; /* Centraliza o ícone */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
 }
 
 .btn-custom:hover {
