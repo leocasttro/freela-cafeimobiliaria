@@ -1,6 +1,6 @@
 <template>
+  <NavBar />
   <div class="container-fluid p-0">
-    <NavBar />
     <GalleryComponent />
     <div class="container-lg">
       <div class="d-flex justify-content-between position-relative">

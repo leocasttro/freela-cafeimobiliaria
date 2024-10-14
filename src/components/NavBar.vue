@@ -15,7 +15,58 @@
             />
           </RouterLink>
         </div>
-        <div class="text-light">
+        <button
+          class="navbar-toggler d-md-none text-bg-light rounded-circle p-2"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" style="font-size: 15px"></span>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Navegação</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/">Home</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/comprar">Comprar</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/alugar">Alugar</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/sobre">Sobre nós</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/empreendimentos"
+                  >Empreendimentos</RouterLink
+                >
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link text-white" to="/anunciar">Anunciar</RouterLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu text-light">
           <span class="me-4">Comprar</span>
           <span class="me-4">Alugar</span>
           <span class="me-4">Sobre nós</span>
@@ -78,5 +129,18 @@ onBeforeUnmount(() => {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Offcanvas e Menu Visibility */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .offcanvas {
+    display: none !important;
+  }
 }
 </style>

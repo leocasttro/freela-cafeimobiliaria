@@ -3,108 +3,57 @@
     <NavBar />
     <HeaderComponent />
     <MainComponent>
-      <div>
-        <h2>Imóveis para comprar em</h2>
-      </div>
-
-      <div class="row mb-2">
-        <div class="col-custon">
-          <div class="custom-select" @blur="openSelect1 = false">
-            <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
-              {{ selected1.nome }}
-            </div>
-            <div class="items" :class="{ selectHide: !openSelect1 }">
-              <div
-                v-for="option in options1"
-                :key="option.id"
-                @click="selectOption(1, option)"
-                :class="{ 'selected-option': selected1 === option }"
-                class="item"
-                style="border-top: #dcdcdc 2px solid"
-              >
-                {{ option.nome }}
-              </div>
-            </div>
-          </div>
+      <div class="container-md" style="height: auto">
+        <div>
+          <h2>Imóveis para comprar em</h2>
         </div>
-      </div>
-      <Carousel v-bind="settings" :breakpoints="breakpoints">
-        <Slide v-for="slide in cardData" :key="slide.id">
-          <CardComponent :title="slide.title" :text="slide.text" :image="slide.image" />
-        </Slide>
 
-        <template #addons>
-          <Navigation />
-        </template>
-      </Carousel>
-
-      <div class="d-flex justify-content-center mt-4">
-        <button class="btn-custom">Ver mais ofertas</button>
-      </div>
-
-      <SectionGrid />
-
-      <CSection style="margin-top: 150px">
-        <article></article>
-        <div class="reasons">
-          <div class="d-flex justify-content-center mb-5">
-            <h3>Motivos para escolher a Café Inteligência Imobiliária</h3>
-          </div>
-          <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card h-100">
-                <div class="d-flex justify-content-center" style="margin-top: 20%; width: 362px">
-                  <img src="../assets/img/wizard.svg" class="card-img-top w-50" alt="..." />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Resultados digitais</h5>
-                  <p class="card-text">
-                    Somos especialistas na geração de resultados digitais. Investimos pesado nos
-                    principais marketplaces do mercado imobiliário e outros meios digitais de
-                    divulgação e prospecção de clientes.
-                  </p>
-                </div>
+        <div class="row mb-2">
+          <div class="col-custon">
+            <div class="custom-select" @blur="openSelect1 = false">
+              <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
+                {{ selected1.nome }}
               </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
-                <div class="d-flex justify-content-center mb-4" style="margin-top: 20%">
-                  <img src="../assets/img/online_friends.svg" class="card-img-top w-50" alt="..." />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Qualidade de informação</h5>
-                  <p class="card-text">
-                    Priorizamos entregar aos nossos clientes um conteúdo relevante e de alto valor
-                    informacional (fotos, vídeos, descrições, etc.) permitindo uma análise e
-                    visitação mais assertiva.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card h-100">
+              <div class="items" :class="{ selectHide: !openSelect1 }">
                 <div
-                  class="d-flex justify-content-center mb-4"
-                  style="margin-top: 20%; width: 362px"
+                  v-for="option in options1"
+                  :key="option.id"
+                  @click="selectOption(1, option)"
+                  :class="{ 'selected-option': selected1 === option }"
+                  class="item"
+                  style="border-top: #dcdcdc 2px solid"
                 >
-                  <img src="../assets/img/hire.svg" class="card-img-top w-50" alt="..." />
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Relações transparentes</h5>
-                  <p class="card-text">
-                    Em um mercado tão competitivo, conduzimos nossas ações com total transparência e
-                    imparcialidade, zelando pela segurança nos negócios imobiliários.
-                  </p>
+                  {{ option.nome }}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="container-md mt-5 reasons"></div>
-      </CSection>
+        <div class="container-md container-carousel-custom">
+          <Carousel v-bind="settings" :breakpoints="breakpoints">
+            <Slide v-for="slide in cardData" :key="slide.id">
+              <CardComponent :title="slide.title" :text="slide.text" :image="slide.image" />
+            </Slide>
+
+            <template #addons>
+              <Navigation />
+            </template>
+          </Carousel>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+          <button class="btn-custom">Ver mais ofertas</button>
+        </div>
+
+        <SectionGrid />
+
+        <ReasonComponent />
+      </div>
     </MainComponent>
 
-    <div class="container-fluid d-flex align-items-center justify-content-center container-custom">
+    <div
+      class="p-5 container-fluid d-flex align-items-center justify-content-center container-custom"
+    >
       <div class="text-center">
         <h2>Ainda não encontrou o imóvel que você deseja?</h2>
         <p>
@@ -116,22 +65,38 @@
     </div>
 
     <MainComponent>
-      <div>
+      <div class="container-md">
         <h1>Encontrar nas proximidades:</h1>
         <div class="mt-5">
-          <button class="mx-1 btn-custom-w">UFN</button>
-          <button class="mx-2 btn-custom-w">Calçadão</button>
-          <button class="mx-1 btn-custom-w">UFSM</button>
+          <button class="mx-1 btn-custom-w">
+            <i
+              class="em em-house_with_garden"
+              aria-role="presentation"
+              aria-label="HOUSE WITH GARDEN"
+            ></i>
+            UFN
+          </button>
+          <button class="mx-2 btn-custom-w">
+            <i class="em em-motorway" aria-role="presentation" aria-label=""></i> Calçadão
+          </button>
+          <button class="mx-1 btn-custom-w">
+            <i
+              class="em em-house_with_garden"
+              aria-role="presentation"
+              aria-label="HOUSE WITH GARDEN"
+            ></i>
+            UFSM
+          </button>
         </div>
         <div class="mt-4">
           <h2>Bairros mais pesquisados</h2>
-          <div class="row text-center mx-1 my-5" style="height: 150px">
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
-            <div class="col rounded align-content-center bg-secondary text-white me-3">teste</div>
+          <div class="row text-center mx-1 my-5 row-custom" style="height: 150px">
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
+            <div class="col rounded align-content-center text-white me-3 col-custom">teste</div>
           </div>
         </div>
         <div>
@@ -168,9 +133,9 @@ import NavBar from '@/components/NavBar.vue'
 import MainComponent from '@/components/MainComponent.vue'
 import 'vue3-carousel/dist/carousel.css'
 import SectionGrid from '@/components/SectionGrid.vue'
-import CSection from '@/components/UI/CSection.vue'
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import MainFooter from '@/components/MainFooter.vue'
+import ReasonComponent from '@/components/ReasonComponent.vue'
 
 const cardData = ref([
   {
@@ -305,6 +270,14 @@ const breakpoints = {
   1024: {
     itemsToShow: 4,
     snapAlign: 'start'
+  },
+  768: {
+    itemsToShow: 2,
+    snapAlign: 'start'
+  },
+  375: {
+    itemsToShow: 1,
+    snapAlign: 'start'
   }
 }
 onMounted(() => {
@@ -325,7 +298,7 @@ onMounted(() => {
 .custom-select .selected {
   background-color: #fffafa;
   border-radius: 10px;
-  border: 1px solid gray;
+  border: 1px solid rgb(226, 222, 222);
   color: rgb(39, 38, 38);
   padding-left: 1em;
   cursor: pointer;
@@ -401,7 +374,7 @@ onMounted(() => {
 
 .btn-custom-w {
   border-radius: 25px;
-  border: 2px solid gray; /* Define a largura da borda e cor */
+  border: 2px solid #e2e8f0; /* Define a largura da borda e cor */
   background-color: white;
   font-size: 0.75rem;
   width: 100px;
@@ -412,10 +385,52 @@ onMounted(() => {
   margin-top: 6rem;
 }
 
+.col-custom {
+  background-color: #a6a6a6;
+}
+
 .container-custom {
   background-image: url('../assets/img/home__notifications.jpg');
   background-repeat: no-repeat;
   background-position: right center;
   height: 25vh; /* para fazer com que ocupe toda a altura da janela */
+}
+
+@media (max-width: 768px) {
+  .custom-select {
+    width: 100%; /* O select ocupará 100% da largura */
+    margin-bottom: 10px; /* Espaçamento entre os selects */
+  }
+
+  .container-custom {
+    background-image: none; /* Remove o background em telas menores */
+  }
+
+  .container-custom,
+  .btn-custom {
+    width: 100% !important;
+  }
+
+  .col-custom {
+    width: 48% !important; /* Cada coluna ocupará 48% da largura */
+    margin-bottom: 10px !important; /* Espaçamento entre as colunas */
+  }
+
+  .row-custom {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important; /* Espaçamento uniforme entre as colunas */
+  }
+  .container-carousel-custom {
+    width: 100vw; /* Ocupa 100% da largura da janela */
+    margin-left: -16px; /* Remove qualquer margem padrão do container */
+    margin-right: -16px; /* Remove qualquer margem padrão do container */
+  }
+
+  /* Para ajustar o espaçamento dos slides, se necessário */
+  .carousel-slide {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 </style>

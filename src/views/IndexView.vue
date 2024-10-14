@@ -43,48 +43,52 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
             </div>
           </h3>
         </div>
-        <div class="container-md">
-          <div class="row g-3 justify-content-center">
-            <div
-              class="card-img col-lg-6"
-              style="width: 23rem; margin-right: 20px; border: none; padding: 0"
-            >
-              <a href="/home" style="text-decoration: none">
-                <div class="img">
-                  <img
-                    src="../assets/img/backs-home/santa-maria-2.jpeg"
-                    class="card-img"
-                    alt="..."
-                    style="border-top-right-radius: 20px; border-top-left-radius: 20px"
-                  />
-                </div>
-                <div class="body-card d-flex justify-content-center">
-                  <div class="footer-card" style="margin: auto">
-                    <h1 class="titulo-card fs-5 fw-bold">Santa Maria</h1>
-                    <h2 class="subtitulo-card fs-5 fw-bold">e Região</h2>
+        <div class="container-md container-custom">
+          <div class="d-flex justify-content-center flex-column flex-md-row align-content-center">
+            <div class="container-card" style="width: auto">
+              <div
+                class="card-img col-lg-6"
+                style="width: 23rem; margin-right: 20px; border: none; padding: 0"
+              >
+                <a href="/home" style="text-decoration: none">
+                  <div class="img">
+                    <img
+                      src="../assets/img/backs-home/santa-maria-2.jpeg"
+                      class="card-img"
+                      alt="..."
+                      style="border-top-right-radius: 20px; border-top-left-radius: 20px"
+                    />
                   </div>
-                  <button class="button" style="margin: auto">Acessar Site</button>
-                </div>
-              </a>
+                  <div class="body-card d-flex justify-content-center">
+                    <div class="footer-card" style="margin: auto">
+                      <h1 class="titulo-card fs-5 fw-bold">Santa Maria</h1>
+                      <h2 class="subtitulo-card fs-5 fw-bold">e Região</h2>
+                    </div>
+                    <button class="button" style="margin: auto">Acessar Site</button>
+                  </div>
+                </a>
+              </div>
             </div>
-            <div class="card-img col-lg-6" style="width: 23rem; margin-left: 30px; padding: 0">
-              <a href="" style="text-decoration: none">
-                <div class="img">
-                  <img
-                    src="../assets/img/backs-home/balneario-camboriu.jpeg"
-                    class="card-img"
-                    alt="..."
-                    style="border-top-right-radius: 20px; border-top-left-radius: 20px"
-                  />
-                </div>
-                <div class="body-card d-flex justify-content-center">
-                  <div class="footer-card" style="margin: auto">
-                    <h1 class="titulo-card fs-5 fw-bold">Balneário<br />Camboriú</h1>
-                    <h2 class="subtitulo-card fs-5 fw-bold">e Região</h2>
+            <div class="container-card-2" style="width: auto">
+              <div class="card-img col-lg-6" style="width: 23rem; margin-left: 30px; padding: 0">
+                <a href="" style="text-decoration: none">
+                  <div class="img">
+                    <img
+                      src="../assets/img/backs-home/balneario-camboriu.jpeg"
+                      class="card-img"
+                      alt="..."
+                      style="border-top-right-radius: 20px; border-top-left-radius: 20px"
+                    />
                   </div>
-                  <button class="button" style="margin: auto">Acessar Site</button>
-                </div>
-              </a>
+                  <div class="body-card d-flex justify-content-center">
+                    <div class="footer-card" style="margin: auto">
+                      <h1 class="titulo-card fs-5 fw-bold">Balneário<br />Camboriú</h1>
+                      <h2 class="subtitulo-card fs-5 fw-bold">e Região</h2>
+                    </div>
+                    <button class="button" style="margin: auto">Acessar Site</button>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -147,5 +151,90 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
   background-color: #c59459;
   width: 150px;
   height: 45px;
+}
+
+@media (max-width: 765px) {
+  .container-custom {
+    max-width: 100vh;
+    margin: 0 auto;
+  }
+
+  /* Alterando a disposição dos cards para coluna em telas menores */
+  .d-flex.flex-md-row {
+    flex-direction: column;
+    align-items: center; /* Centraliza os cards */
+  }
+
+  /* Ajustando o tamanho dos containers dos cards */
+  .container-card,
+  .container-card-2 {
+    align-items: center;
+    width: 100%; /* O card ocupa toda a largura disponível */
+    margin-bottom: 10px; /* Espaço entre os cards */
+  }
+
+  /* Ajustando a largura e altura da imagem do card */
+  .card-img {
+    width: 100%; /* A imagem ocupa toda a largura do card */
+    height: auto; /* Altura ajusta-se proporcionalmente */
+    margin: 0 !important;
+  }
+
+  /* Reduzindo a escala dos textos e botões de forma proporcional */
+  .footer-card h1 {
+    font-size: 1.25rem; /* Reduzindo o tamanho do título */
+  }
+
+  .footer-card h2 {
+    font-size: 1rem; /* Reduzindo o subtítulo */
+  }
+
+  .button {
+    font-size: 0.875rem; /* Reduzindo o tamanho do texto no botão */
+    width: 100%; /* Botão ocupa toda a largura no modo coluna */
+    max-width: 200px; /* Define um tamanho máximo para o botão */
+  }
+}
+
+@media (max-width: 576px) {
+  .container-custom {
+    max-width: 100vh;
+    margin: 0 auto;
+  }
+
+  /* Alterando a disposição dos cards para coluna em telas menores */
+  .d-flex.flex-md-row {
+    flex-direction: column;
+    align-items: center; /* Centraliza os cards */
+  }
+
+  /* Ajustando o tamanho dos containers dos cards */
+  .container-card,
+  .container-card-2 {
+    width: 100%; /* O card ocupa toda a largura disponível */
+    margin-bottom: 10px; /* Espaço entre os cards */
+  }
+
+  /* Ajustando a largura e altura da imagem do card */
+  .card-img {
+    width: 100%; /* A imagem ocupa toda a largura do card */
+    height: auto; /* Altura ajusta-se proporcionalmente */
+    margin: 0 !important;
+  }
+
+  /* Reduzindo a escala dos textos e botões de forma proporcional */
+  .footer-card h1 {
+    font-size: 1.25rem; /* Reduzindo o tamanho do título */
+  }
+
+  .footer-card h2 {
+    font-size: 1rem; /* Reduzindo o subtítulo */
+  }
+
+  .button {
+    font-size: 0.875rem; /* Reduzindo o tamanho do texto no botão */
+    width: 100%; /* Botão ocupa toda a largura no modo coluna */
+    max-width: 200px; /* Define um tamanho máximo para o botão */
+  }
 }
 </style>

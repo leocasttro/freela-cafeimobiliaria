@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container-md mt-5">
+    <div class="container-fluid my-5 pb-5">
       <slot></slot>
     </div>
   </main>

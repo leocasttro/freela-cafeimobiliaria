@@ -1,8 +1,8 @@
 <template>
   <footer class="container-fluid border-top mt-5">
-    <div class="container mt-5 d-flex justify-content-around">
-      <div>
-        <div class="d-flex flex-column align-items-start">
+    <div class="container mt-5 d-flex justify-content-around container-footer-tp">
+      <div class="footer-logo">
+        <div class="d-flex flex-column align-items-center">
           <img
             src="../assets/img/logos/1.png"
             alt="Logo"
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="ft-div">
         <ul class="list-unstyled text-center" style="font-size: 15px">
           <li class="fw-bold">
             <a href="#" class="text-decoration-none custom-link text-secondary">Imóveis</a>
@@ -38,7 +38,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="ft-div">
         <ul class="list-unstyled text-center" style="font-size: 15px">
           <li class="fw-bold">
             <a href="#" class="text-decoration-none custom-link text-secondary">A Café</a>
@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="p-4" style="background-color: #edf2f7">
-      <div class="container d-flex justify-content-between">
+      <div class="container d-flex justify-content-between container-footer-bt">
         <span class="align-content-center" style="font-size: small"
           >Café Negócios Imobiliários Ltda. * Creci 24.707J * Rua Silva Jardim, 1417, Centro, Santa
           Maria/RS | R. 3300, nº 341, Sala 12, Balneário Camboriú/SC
@@ -127,5 +127,34 @@
 
 .btn-custom:hover {
   background-image: linear-gradient(#e4a92a, #ac7145);
+}
+@media (max-width: 768px) {
+  .container-footer-tp {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    flex: 1 1 70%; /* Aumenta o tamanho da primeira div (70% do espaço disponível) */
+    min-width: 250px; /* Define uma largura mínima para a primeira div */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente os itens */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px; /* Adiciona um pouco de espaçamento interno */
+    margin-bottom: 10px;
+  }
+
+  .container-footer-bt {
+    flex-direction: column !important; /* Coloca o conteúdo em coluna */
+    align-items: center !important; /* Centraliza o conteúdo horizontalmente */
+  }
+
+  /* Ajuste as outras divs conforme necessário */
+  .ft-div {
+    flex: 1 1 30%; /* Define o tamanho das outras divs (30% do espaço disponível) */
+    min-width: 200px; /* Define uma largura mínima para as outras divs */
+    margin-bottom: 10px;
+  }
 }
 </style>

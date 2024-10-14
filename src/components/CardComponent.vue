@@ -81,7 +81,7 @@ const props = defineProps({
 
 .btn-custom-w {
   border-radius: 25px;
-  border: 2px solid gray; /* Define a largura da borda e cor */
+  border: 2px solid #e2e8f0; /* Define a largura da borda e cor */
   background-color: white;
   font-size: 0.75rem;
   width: 100px;

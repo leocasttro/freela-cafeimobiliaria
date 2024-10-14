@@ -1,85 +1,87 @@
 <template>
   <div class="container-header w-100">
-    <header :class="['header-bg', routeName]" class="position-relative">
-      <div class="h-100 align-content-center">
-        <div class="titulo text-lg-center">
-          <h2 class="text-light">Qual imóvel você quer visitar hoje?</h2>
-        </div>
-        <div class="container-sm container-custom">
-          <div class="row mb-2 mt-4">
-            <div class="col d-flex gap-2">
-              <a href="">Comprar</a>
-              <a href="">Alugar</a>
-              <a href="">Buscar por código</a>
-            </div>
+    <header :class="['header-bg', routeName]" class="position-relative align-content-center">
+      <div class="container-lg itens-center">
+        <div class="h-100 align-content-center">
+          <div class="titulo text-lg-center">
+            <h2 class="text-light">Qual imóvel você quer visitar hoje?</h2>
           </div>
-          <div class="row mb-2">
-            <div class="col-custon">
-              <div class="custom-select" @blur="openSelect1 = false">
-                <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
-                  <i class="fa-solid fa-location-dot me-3" style="color: #a0aec0"></i>
-                  {{ selected1.nome }}
-                </div>
-                <div class="items" :class="{ selectHide: !openSelect1 }">
-                  <div
-                    v-for="option in options1"
-                    :key="option.id"
-                    @click="selectOption(1, option)"
-                    :class="{ 'selected-option': selected1 === option }"
-                    class="item"
-                    style="border-top: #dcdcdc 2px solid"
-                  >
-                    {{ option.nome }}
+          <div class="container-sm container-custom">
+            <div class="row mb-2 mt-4">
+              <div class="col d-flex gap-2">
+                <a href="">Comprar</a>
+                <a href="">Alugar</a>
+                <a href="">Buscar por código</a>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-custon">
+                <div class="custom-select" @blur="openSelect1 = false">
+                  <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
+                    <i class="fa-solid fa-location-dot me-3" style="color: #a0aec0"></i>
+                    {{ selected1.nome }}
+                  </div>
+                  <div class="items" :class="{ selectHide: !openSelect1 }">
+                    <div
+                      v-for="option in options1"
+                      :key="option.id"
+                      @click="selectOption(1, option)"
+                      :class="{ 'selected-option': selected1 === option }"
+                      class="item"
+                      style="border-top: #dcdcdc 2px solid"
+                    >
+                      {{ option.nome }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col-custon">
-              <div class="custom-select" @blur="openSelect2 = false">
-                <div class="selected" :class="{ open: openSelect2 }" @click="toggleSelect(2)">
-                  <i class="fa-solid fa-magnifying-glass me-3" style="color: #a0aec0"></i>
-                  {{ selected2.nome }}
-                </div>
-                <div class="items" :class="{ selectHide: !openSelect2 }">
-                  <div
-                    v-for="option in options2"
-                    :key="option.id"
-                    @click="selectOption(2, option)"
-                    :class="{ 'selected-option': selected2 === option }"
-                    class="item"
-                    style="border-top: #dcdcdc 2px solid"
-                  >
-                    {{ option.nome }}
+            <div class="row mb-2">
+              <div class="col-custon">
+                <div class="custom-select" @blur="openSelect2 = false">
+                  <div class="selected" :class="{ open: openSelect2 }" @click="toggleSelect(2)">
+                    <i class="fa-solid fa-magnifying-glass me-3" style="color: #a0aec0"></i>
+                    {{ selected2.nome }}
+                  </div>
+                  <div class="items" :class="{ selectHide: !openSelect2 }">
+                    <div
+                      v-for="option in options2"
+                      :key="option.id"
+                      @click="selectOption(2, option)"
+                      :class="{ 'selected-option': selected2 === option }"
+                      class="item"
+                      style="border-top: #dcdcdc 2px solid"
+                    >
+                      {{ option.nome }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col-custon">
-              <div class="custom-select" @blur="openSelect3 = false">
-                <div class="selected" :class="{ open: openSelect3 }" @click="toggleSelect(3)">
-                  <i class="fa-solid fa-magnifying-glass me-3" style="color: #a0aec0"></i>
-                  {{ selected3 }}
-                </div>
-                <div class="items" :class="{ selectHide: !openSelect3 }">
-                  <div
-                    v-for="option in options3"
-                    :key="option.id"
-                    @click="selectOption(3, option)"
-                    :class="{ 'selected-option': selected3 === option }"
-                    class="item"
-                    style="border-top: #dcdcdc 2px solid"
-                  >
-                    {{ option }}
+            <div class="row mb-2">
+              <div class="col-custon">
+                <div class="custom-select" @blur="openSelect3 = false">
+                  <div class="selected" :class="{ open: openSelect3 }" @click="toggleSelect(3)">
+                    <i class="fa-solid fa-magnifying-glass me-3" style="color: #a0aec0"></i>
+                    {{ selected3 }}
+                  </div>
+                  <div class="items" :class="{ selectHide: !openSelect3 }">
+                    <div
+                      v-for="option in options3"
+                      :key="option.id"
+                      @click="selectOption(3, option)"
+                      :class="{ 'selected-option': selected3 === option }"
+                      class="item"
+                      style="border-top: #dcdcdc 2px solid"
+                    >
+                      {{ option }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <button class="btn-custom mt-2">Pesquisar</button>
           </div>
-          <button class="btn-custom mt-2">Pesquisar</button>
         </div>
       </div>
     </header>
@@ -327,5 +329,38 @@ a {
 }
 .btn-custom:hover {
   background-image: linear-gradient(#e4a92a, #ac7145);
+}
+
+@media (max-width: 768px) {
+  .custom-select {
+    width: 100%; /* O select ocupará 100% da largura */
+    margin-bottom: 10px; /* Espaçamento entre os selects */
+  }
+
+  .btn-custom {
+    width: 100%; /* O botão também ocupa 100% da largura em telas menores */
+    font-size: 1rem;
+  }
+
+  .container-custom {
+    padding-left: 15px; /* Ajusta o padding em telas menores */
+    padding-right: 15px;
+  }
+
+  .titulo h2 {
+    font-size: 1.3rem;
+    text-align: center; /* Tamanho menor do título */
+  }
+
+  .col {
+    flex-direction: row;
+    justify-content: space-between; /* Empilha os links em telas pequenas */
+    text-align: center;
+  }
+
+  a {
+    display: block; /* Links um abaixo do outro */
+    margin: 5px 0;
+  }
 }
 </style>
