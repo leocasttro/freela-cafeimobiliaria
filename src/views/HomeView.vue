@@ -396,6 +396,13 @@ onMounted(() => {
   height: 25vh; /* para fazer com que ocupe toda a altura da janela */
 }
 
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  color: white;
+  width: 50px;
+  height: 40px;
+}
+
 @media (max-width: 768px) {
   .custom-select {
     width: 100%; /* O select ocupará 100% da largura */

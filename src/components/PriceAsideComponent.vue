@@ -1,7 +1,6 @@
 <template>
   <div
-    class="container mx-4 position-sticky top-0 container-custom"
-    ref="content"
+    class="container position-sticky top-0 container-custom"
     style="
       box-shadow:
         -4px 20px 10px rgba(0, 0, 0, 0.1),
@@ -10,7 +9,7 @@
       border-bottom: 1px solid transparent;
     "
   >
-    <div class="d-flex justify-content-between mt-5">
+    <div class="d-flex justify-content-between">
       <h5 class="fw-bold">Venda</h5>
       <p
         class="text-white text-center align-content-center"
@@ -89,30 +88,7 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from 'vue'
-
-const content = ref(null)
-
-onMounted(() => {
-  const navbar = document.querySelector('.navbar')
-
-  if (navbar && content.value) {
-    // Ajusta o scroll da página ao rolar
-    window.addEventListener('scroll', () => {
-      const navbarHeight = navbar.offsetHeight
-      const scrollTop = window.scrollY
-
-      // Se o scroll passar da altura da navbar, ajusta a margem superior
-      if (scrollTop >= navbarHeight) {
-        content.value.style.marginTop = `${navbarHeight}px`
-      } else {
-        content.value.style.marginTop = '0px'
-      }
-    })
-  }
-})
-</script>
+<script setup></script>
 
 <style scoped>
 .img-seller {

@@ -13,6 +13,7 @@ const logonovo = ref(new URL('../assets/img/logos/3.png', import.meta.url).href)
         src="../assets/img/backs-home/fundo-cafe-designer.png"
         class="position-absolute"
         alt="background mulher tomando café"
+        style="width: 100%; height: 100%; object-fit: cover; background-repeat: no-repeat"
       />
       <div
         class="index-fundo position-absolute top-0 start-0 w-100 h-100"
