@@ -380,6 +380,24 @@ const breakpoints = {
   height: 50px;
 }
 .col-md-4 p {
-  margin-bottom: 8px; /* Ajuste para diminuir o espaço entre os itens */
+  margin-bottom: 8px;
+}
+
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  color: white;
+  width: 50px;
+  height: 40px;
+  margin: 0 20px;
+}
+
+:deep(.carousel__icon) {
+  width: 50px;
+  height: 40px;
+  fill: currentColor;
+  stroke: #ffffff;
+  stroke-width: 2px;
+  -webkit-filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.9));
 }
 </style>
