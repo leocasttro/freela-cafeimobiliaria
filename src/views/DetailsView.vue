@@ -37,7 +37,10 @@
               <PriceAsideComponent />
             </div>
             <div v-else class="thumb">
-              <img src="../assets/img/backs-home/santa-maria.png" class="thumb-img" alt="..." />
+              <div class="thumb-img-container">
+                <span class="thumb-code z-2">CÓDIGO #323222</span>
+                <img src="../assets/img/backs-home/santa-maria.png" class="thumb-img" alt="..." />
+              </div>
             </div>
           </div>
           <div class="border-top border-secondary-subtle mt-4">
@@ -338,10 +341,41 @@ const breakpoints = {
   min-height: 100vh;
 }
 .thumb-img {
+  object-fit: cover;
+  display: block; /* Remove o espaço em branco abaixo da imagem */
+  width: 100%; /* Faz a imagem ocupar toda a largura do contêiner */
+  height: 100%; /* Mantém a proporção da imagem */
+}
+
+.thumb-code {
+  position: absolute; /* Posiciona o span de forma absoluta */
+  top: 25px; /* Ajuste conforme necessário para a distância do topo */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Move o span para a esquerda pela metade da sua largura */
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 5px; /* Espaco interno para o span, opcional */
+  border-radius: 4px; /* Borda arredondada, opcional */
+}
+
+.thumb-img-container {
+  position: relative; /* Para que o fundo escuro fique sobre a imagem */
+  display: inline-block; /* Para evitar que o contêiner ocupe toda a largura */
   width: 100px;
   height: 108px;
+}
+
+.thumb-img-container::before {
+  content: ''; /* Adiciona um pseudo-elemento */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+  z-index: 1; /* Coloca o fundo acima da imagem, mas abaixo do span */
   border-radius: 10px;
-  object-fit: cover;
 }
 
 .icon-custom {
