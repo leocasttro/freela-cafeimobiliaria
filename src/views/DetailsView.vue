@@ -1,7 +1,7 @@
 <template>
   <NavBar />
   <div class="container-fluid p-0">
-    <div v-if="isMobile" class="mb-4">
+    <div v-if="isMobile" class="mb-2">
       <Carousel v-bind="settingsHeader" :breakpoints="breakpoints">
         <Slide v-for="slide in cardData" :key="slide.id">
           <img :src="slide.image" class="w-100" />
@@ -162,7 +162,17 @@
             <h5 class="fw-bold mt-4">Imoveis similares</h5>
             <Carousel v-bind="settings" :breakpoints="breakpoints">
               <Slide v-for="slide in cardData" :key="slide.id">
-                <CardComponent :title="slide.title" :text="slide.text" :image="slide.image" />
+                <CardComponent
+                  :image="slide.imagem"
+                  :text="slide.contrato"
+                  :type="slide.tipo"
+                  :cod="slide.codigo"
+                  :title="slide.endereco_bairro"
+                  :dormitory="slide.dormitorios"
+                  :garage="slide.garagens"
+                  :area_total="slide.area_total"
+                  :value="slide.valor_venda"
+                />
               </Slide>
 
               <template #addons>
@@ -204,92 +214,21 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
-const cardData = ref([
-  {
-    id: 1,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 1',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 2,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 2',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 3,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 3',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 4,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 4',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 5,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 5',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 6,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 6',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 7,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 7',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 8,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 8',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 9,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 9',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 10,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 10',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 11,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 11',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 12,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 12',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
+let cardData = ref([])
+
+const loadProperty = async () => {
+  try {
+    const response = await fetch('../../public/jsons/imoveis/cafeimoveis.json')
+    if (!response.ok) {
+      throw new Error('Erro ao carregar o arquivo JSON')
+    }
+    const data = await response.json()
+
+    cardData.value = data.slice(0, 12)
+  } catch (error) {
+    console.error(error)
   }
-])
+}
 
 const sectionWidth = ref('70%')
 
@@ -310,6 +249,7 @@ const handleResize = () => {
 onMounted(() => {
   window.addEventListener('resize', handleResize)
   updateSectionWidth()
+  loadProperty()
 })
 
 onBeforeUnmount(() => {

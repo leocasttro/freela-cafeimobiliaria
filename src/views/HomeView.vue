@@ -32,7 +32,17 @@
         <div class="container-md container-carousel-custom">
           <Carousel v-bind="settings" :breakpoints="breakpoints">
             <Slide v-for="slide in cardData" :key="slide.id">
-              <CardComponent :title="slide.title" :text="slide.text" :image="slide.image" />
+              <CardComponent
+                :image="slide.imagem"
+                :text="slide.contrato"
+                :type="slide.tipo"
+                :cod="slide.codigo"
+                :title="slide.endereco_bairro"
+                :dormitory="slide.dormitorios"
+                :garage="slide.garagens"
+                :area_total="slide.area_total"
+                :value="slide.valor_venda"
+              />
             </Slide>
 
             <template #addons>
@@ -137,98 +147,26 @@ import HeaderComponent from '@/components/HeaderComponent.vue'
 import MainFooter from '@/components/MainFooter.vue'
 import ReasonComponent from '@/components/ReasonComponent.vue'
 
-const cardData = ref([
-  {
-    id: 1,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 1',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 2,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 2',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 3,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 3',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 4,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 4',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 5,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 5',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 6,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 6',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 7,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 7',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 8,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 8',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 9,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 9',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 10,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 10',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 11,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 11',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
-  },
-  {
-    id: 12,
-    title: 'N. Sra. Medianeira',
-    text: 'Descrição do Card 12',
-    image:
-      'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc0Mjd8MHwxfGFsbHw1fHx8fHx8fHwxNjk5Mjg0NzY0&ixlib=rb-1.2.1&q=80&w=1080'
+let cardData = ref([])
+
+const loadProperty = async () => {
+  try {
+    const response = await fetch('../../public/jsons/imoveis/cafeimoveis.json')
+    if (!response.ok) {
+      throw new Error('Erro ao carregar o arquivo JSON')
+    }
+    const data = await response.json()
+    cardData.value = data.slice(0, 12)
+  } catch (error) {
+    console.error(error)
   }
-])
+}
 
 const emit = defineEmits(['input'])
 
 const selected1 = ref('')
 const openSelect1 = ref(false)
-const options1 = ref([]) // Dados fictícios
+const options1 = ref([])
 
 const toggleSelect = (selectNumber) => {
   if (selectNumber === 1) {
@@ -263,25 +201,27 @@ const loadCity = async () => {
 
 const settings = {
   itemsToShow: 4,
-  snapAlign: 'center'
+  snapAlign: 'start'
 }
 
 const breakpoints = {
   1024: {
     itemsToShow: 4,
-    snapAlign: 'start'
+    snapAlign: 'start',
+    itemsToScroll: 4
   },
   768: {
     itemsToShow: 2,
     snapAlign: 'start'
   },
   375: {
-    itemsToShow: 1,
+    itemsToShow: 1.2,
     snapAlign: 'start'
   }
 }
 onMounted(() => {
   loadCity()
+  loadProperty()
 })
 </script>
 

@@ -10,7 +10,7 @@ export default {}
 
 <style scoped>
 .card-wrapper {
-  transition: max-height 300ms linear;
+  transition: max-height 200ms linear;
 }
 
 button.card-wrapper {

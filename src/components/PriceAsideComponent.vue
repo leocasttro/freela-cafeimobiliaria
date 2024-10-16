@@ -1,11 +1,10 @@
 <template>
   <div
-    class="container position-sticky top-0 container-custom"
+    class="container position-sticky top-0 container-custom mt-5"
     style="
       box-shadow:
         -4px 20px 10px rgba(0, 0, 0, 0.1),
         4px 4px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 145px;
       border-bottom: 1px solid transparent;
     "
   >
