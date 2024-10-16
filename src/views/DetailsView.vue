@@ -1,10 +1,10 @@
 <template>
   <NavBar />
   <div class="container-fluid p-0">
-    <div v-if="isMobile" class="mb-2">
+    <div v-if="isMobile" class="mt-4">
       <Carousel v-bind="settingsHeader" :breakpoints="breakpoints">
-        <Slide v-for="slide in cardData" :key="slide.id">
-          <img :src="slide.image" class="w-100" />
+        <Slide v-for="slide of teste" :key="slide.id">
+          <img :src="slide.image" class="w-100" style="object-fit: cover" />
         </Slide>
 
         <template #addons>
@@ -229,6 +229,93 @@ const loadProperty = async () => {
     console.error(error)
   }
 }
+
+const teste = ref([
+  {
+    id: 1,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 1',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 2,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 2',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 3,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 3',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 4,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 4',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 5,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 5',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 6,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 6',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 7,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 7',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 8,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 8',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 9,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 9',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 10,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 10',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 11,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 11',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  },
+  {
+    id: 12,
+    title: 'N. Sra. Medianeira',
+    text: 'Descrição do Card 12',
+    image:
+      'https://s01.jetimgs.com/trsORf8vb9lyIzpxDfNJg_45EfxTFSuTnWldxcTVgtcONaorCgD5eba7-PjLBzF8LXsbaW5Ex4dHw14YdxdA_kjtDnT7b5Ma0Xa8xfynbzSX-DyF2KPpzp4F1PU2k3RsAjURNbvkAt8RTJrBY5HRt2fsXkYH40F-6Q/50-1.jpg'
+  }
+])
 
 const sectionWidth = ref('70%')
 
