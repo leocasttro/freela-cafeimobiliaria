@@ -2,14 +2,14 @@
   <CardWrapper>
     <div class="card mt-5 card-custon">
       <img :src="image" class="card-img-top card-img-custom" alt="..." />
-      <div class="card-body p-1 mt-1">
-        <div class="d-flex justify-content-between card-text">
+      <div class="card-body p-1">
+        <div class="d-flex m-2 justify-content-between card-text">
           <span
             ><strong>{{ text }}:</strong> {{ type }}</span
           >
           <span>Cód: {{ cod }}</span>
         </div>
-        <div class="card-title mt-3">
+        <div class="card-title m-2">
           <h3>{{ title }}</h3>
         </div>
         <div class="card-text mt-5" style="color: gray">
@@ -75,11 +75,6 @@ const garage = props.garage ?? 'n/a'
 .card-custon {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease;
-}
-
-.card-body {
-  max-width: 286px; /* Define a largura máxima */
-  max-height: 541.594px; /* Define a altura máxima */
 }
 
 .card-custon:hover {

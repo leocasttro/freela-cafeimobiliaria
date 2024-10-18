@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container position-sticky top-0 container-custom mt-5"
+    class="container position-sticky top-0 container-custom mt-5 mx-md-3"
     style="
       box-shadow:
         -4px 20px 10px rgba(0, 0, 0, 0.1),

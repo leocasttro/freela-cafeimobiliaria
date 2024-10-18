@@ -47,7 +47,7 @@
                 <RouterLink class="nav-link text-white" to="/">Home</RouterLink>
               </li>
               <li class="nav-item">
-                <RouterLink class="nav-link text-white" to="/comprar">Comprar</RouterLink>
+                <RouterLink class="nav-link text-white" to="/venda">Comprar</RouterLink>
               </li>
               <li class="nav-item">
                 <RouterLink class="nav-link text-white" to="/alugar">Alugar</RouterLink>
@@ -67,7 +67,9 @@
           </div>
         </div>
         <div class="menu text-light">
-          <span class="me-4">Comprar</span>
+          <span class="me-4">
+            <RouterLink class="text-light text-decoration-none" to="/venda">Comprar</RouterLink>
+          </span>
           <span class="me-4">Alugar</span>
           <span class="me-4">Sobre nós</span>
           <span class="me-4">Empreendimentos</span>

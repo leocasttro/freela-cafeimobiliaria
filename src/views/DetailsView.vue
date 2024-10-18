@@ -355,7 +355,7 @@ const settings = {
 
 const breakpoints = {
   1024: {
-    itemsToShow: 2.8,
+    itemsToShow: 3,
     snapAlign: 'start'
   }
 }
