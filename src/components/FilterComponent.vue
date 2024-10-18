@@ -43,7 +43,7 @@
         <div class="d-flex align-items-center mb-4 mb-sm-0 d-custom" style="width: 500px">
           <!-- Select com Bootstrap -->
 
-          <div class="custom-select w-50 text-start" @blur="openSelect1 = false">
+          <div class="custom-select w-100 text-start" @blur="openSelect1 = false">
             <div class="selected" :class="{ open: openSelect1 }" @click="toggleSelect(1)">
               {{ selected1 }}
             </div>
@@ -60,7 +60,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-simulated mx-2 w-75" style="height: 50px">Filtro</button>
+          <button class="btn btn-simulated mx-2 w-100" style="height: 50px">Filtro</button>
         </div>
       </div>
     </div>
