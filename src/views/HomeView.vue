@@ -41,7 +41,7 @@
                 :dormitory="slide.dormitorios"
                 :garage="slide.garagens"
                 :area_total="slide.area_total"
-                :value="slide.valor_venda"
+                :value="formatCurrency(slide.valor_venda)"
               />
             </Slide>
 
@@ -219,6 +219,14 @@ const breakpoints = {
     snapAlign: 'start'
   }
 }
+
+const formatCurrency = (value) => {
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+}
+
 onMounted(() => {
   loadCity()
   loadProperty()

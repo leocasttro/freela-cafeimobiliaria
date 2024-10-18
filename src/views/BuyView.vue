@@ -4,7 +4,7 @@
       <NavBar />
     </div>
     <div class="fixed-top z-2 filter-component">
-      <FilterComponent />
+      <FilterComponent :count="count" />
     </div>
     <!-- Container para os cards com scroll infinito -->
     <div class="container-fluid mt-5 pt-5">
@@ -36,6 +36,7 @@ import CardBuyComponent from '@/components/CardBuyComponent.vue'
 
 // Cria a lista de cards vazia como uma referência reativa
 const cardData = ref([])
+let count = ref(0)
 
 // Função para carregar mais cards
 const loadProperty = async () => {
@@ -45,7 +46,9 @@ const loadProperty = async () => {
       throw new Error('Erro ao carregar o arquivo JSON')
     }
     const data = await response.json()
-    cardData.value = data.slice(0, 10)
+    cardData.value = data.slice(0, 20)
+
+    count.value = cardData.value.length
   } catch (error) {
     console.error(error)
   }
